@@ -26,5 +26,25 @@ RSpec.describe Post, type: :model do
       subject.likes_counter = -1
       expect(subject).to_not be_valid
     end
+
+    it 'Should update count of posts' do
+      post = Post.new(author_id: user.id, title: 'Hello', text: 'This is my post')
+      expect(post.count_updater(1)).to be true
+    end
+  end
+
+  context 'Testing behavior' do
+    user = User.new(name: 'John')
+    user.id = 1
+    user.save
+
+    post = Post.new(author_id: user.id, title: 'Hello', text: 'This is my post')
+    post.id = 1
+    post.save
+
+    before { 10.times { Comment.create(author_id: user.id, post_id: post.id, text: 'Text') } }
+    it 'lists the most 5 recent posts' do
+      expect(post.recent_comments.length).to eq 5
+    end
   end
 end
