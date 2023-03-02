@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  user = User.create(name: 'Fuad')
-  user.id = 1
-  subject { Post.new(author_id: user.id, title: 'Hello', text: 'This is my post') }
+  let(:user) { User.create(name: 'Fuad', posts_counter: 0) }
+  subject { Post.new(author_id: user.id, title: 'Hello', text: 'This is my post', comments_counter: 1, likes_counter: 1) }
 
   before { subject.save }
 
@@ -28,23 +27,14 @@ RSpec.describe Post, type: :model do
     end
 
     it 'Should update count of posts' do
-      post = Post.new(author_id: user.id, title: 'Hello', text: 'This is my post')
-      expect(post.count_updater(1)).to be true
+      expect(subject.count_updater).to be true
     end
   end
 
   context 'Testing behavior' do
-    user = User.new(name: 'John')
-    user.id = 1
-    user.save
-
-    post = Post.new(author_id: user.id, title: 'Hello', text: 'This is my post')
-    post.id = 1
-    post.save
-
-    before { 10.times { Comment.create(author_id: user.id, post_id: post.id, text: 'Text') } }
+    before { 10.times { Comment.create(author_id: user.id, post_id: subject.id, text: 'Text') } }
     it 'lists the most 5 recent posts' do
-      expect(post.recent_comments.length).to eq 5
+      expect(subject.recent_comments.length).to eq 5
     end
   end
 end
