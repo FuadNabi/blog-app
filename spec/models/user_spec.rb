@@ -27,10 +27,14 @@ RSpec.describe User, type: :model do
   context 'Testing behavior' do
     let(:user) { subject }
 
-    before { 5.times { Post.create!(author_id: user.id, title: 'Hello World', text: 'Text', comments_counter: 1, likes_counter: 1) } }
+    before do
+      5.times do
+        Post.create!(author_id: user.id, title: 'Hello World', text: 'Text', comments_counter: 1, likes_counter: 1)
+      end
+    end
 
     it 'lists the most 3 recent posts' do
-      expect(user.recent_posts.count ).to eq 3
+      expect(user.recent_posts.count).to eq 3
     end
   end
 end
