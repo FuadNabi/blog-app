@@ -4,9 +4,13 @@
   <p><%= @post.text%></p>
 </div>
   <div class="post-comments">
-    <% Comment.where(post_id:@post.id).each do |comment| %>
-    <div>
-      <p><%= User.find_by(id: comment.author_id).name%>: <%= comment.text%></p>
-    </div>
-    <%end%>
+    <% if @post.recent_comments.any? %>
+      <% Comment.where(post_id:@post.id).each do |comment| %>
+        <div>
+          <p><%= User.find_by(id: comment.author_id).name %>: <%= comment.text[0...100] %>...</p>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No comments added yet.</p>
+    <% end %>
   </div>
