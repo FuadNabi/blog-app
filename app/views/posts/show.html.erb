@@ -2,7 +2,10 @@
 <div class="post-container">
   <h3>Post #<%= @post.id%> by <%= @user.name%></h3>
   <p><%= @post.text%></p>
+  <br>
   <p>Likes:<%= @post.likes_counter%></p>
+  <p>Comments:<%= @post.comments_counter%></p>
+  <br>
   <div class="like-btn">
   <%= form_with model: @post, url: "./#{@post.id}/likes", method: :post do |f|%>
     <%= f.submit 'Like' %>
