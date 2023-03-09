@@ -1,5 +1,5 @@
 <h1>Create New Post</h1>
-<div class="create-post-container">
+<div class="create-container">
   <%= form_with model: @post, url: user_posts_path, method: :post do |f|%>
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: 'Title' %>

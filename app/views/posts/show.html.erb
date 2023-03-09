@@ -3,14 +3,17 @@
   <h3>Post #<%= @post.id%> by <%= @user.name%></h3>
   <p><%= @post.text%></p>
 </div>
-  <div class="post-comments">
-    <% if @post.recent_comments.any? %>
-      <% Comment.where(post_id:@post.id).each do |comment| %>
-        <div>
-          <p><%= User.find_by(id: comment.author_id).name %>: <%= comment.text[0...100] %>...</p>
-        </div>
-      <% end %>
-    <% else %>
-      <p>No comments added yet.</p>
+<div class="create-btn">
+  <button><%= link_to 'Create comment', new_user_post_comment_path(@user.id,@post.id) %></button>
+</div>
+<div class="post-comments">
+  <% if @post.recent_comments.any? %>
+    <% Comment.where(post_id:@post.id).each do |comment| %>
+      <div>
+        <p><%= User.find_by(id: comment.author_id).name %>: <%= comment.text[0...100] %>...</p>
+      </div>
     <% end %>
-  </div>
+  <% else %>
+    <p>No comments added yet.</p>
+  <% end %>
+</div>
