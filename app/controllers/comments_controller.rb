@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     post = Post.find(params[:post_id])
-    @comment = Comment.new(params.require(:comment).permit(:text).merge(author_id: current_user.id, post_id:post.id))
+    @comment = Comment.new(params.require(:comment).permit(:text).merge(author_id: current_user.id, post_id: post.id))
 
     respond_to do |format|
       format.html do

@@ -101,17 +101,17 @@ body {
   padding: 5px;
 }
 
-.create-btn{
+.create-btn {
   text-align: center;
   margin-bottom: 10px;
 }
 
-.create-container{
+.create-container {
   display: flex;
   justify-content: center;
 }
 
-.create-container form{
+.create-container form {
   display: flex;
   flex-direction: column;
 }
