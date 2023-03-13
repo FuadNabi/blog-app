@@ -94,6 +94,11 @@ To run the project, execute the following command:
 - Twitter: [@twitterhandle](https://twitter.com/FuadNebiyev2)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/fuad-nabiyev/)
 
+👤 **Petro Loltolo Lesapiti**
+
+- GitHub: [@petrolesapiti](https://github.com/Loltolo-Lesapiti)
+- LinkedIn: [@petrolesapiti](https://www.linkedin.com/in/petrolesapitiloltolo/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
