@@ -26,7 +26,7 @@
 
 # 📖 Blog App <a name="about-project"></a>
 
-> The Blog app is a classic example of a blog website. It's a functional website that shows the list of posts and empower readers to interact with them by adding comments and liking post.
+> The Blog app is a classic example of a blog website. It's a functional website that shows the list of posts and empower readers to interact with them by adding comments and liking post. In this project, we added the devise gem to the app and used it for the registration and login of users.
 
 ## 🛠 Built With <a name="built-with"></a>
 
