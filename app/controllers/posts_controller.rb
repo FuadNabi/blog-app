@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource # Add this line to load and authorize the resource
+
   def index
     @user = User.find(params[:user_id])
     @posts = Post.where(author_id: @user.id).includes(:comments)
@@ -29,9 +31,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.comments.destroy_all
     @post.destroy
     redirect_to user_path(params[:user_id])
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
