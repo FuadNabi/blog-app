@@ -22,11 +22,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .user-container {
   justify-content: center;
   display: flex;
+  flex-grow: 1;
   margin-bottom: 30px;
   gap: 30px;
 }
