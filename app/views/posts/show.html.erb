@@ -1,7 +1,7 @@
 <div>
   <a href="../../" class="home-button">Home</a>
   <div class="post-container">
-    <h3>Post #<%= @post.id%> by <%= @user.name%></h3>
+    <h3>Post <%= @post.title%> by <%= @user.name%></h3>
     <p><%= @post.text%></p>
     <br>
     <p>Likes:<%= @post.likes_counter%></p>
